@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+    'webserver':
+        image: 'webserver'
+        build:
+            context: ./server
+            dockerfile: ./Dockerfile
+        env_file:
+            - ./.env
+        ports:
+            - 8000:8000
+    'webclient':
+        image: 'webclient'
+        build:
+            context: ./client
+            dockerfile: ./Dockerfile
+        ports:
+            - 3000:3000
+    'db':
+        image: postgres
+        restart: always
+        environment:
+            POSTGRES_PASSWORD: app2020
+        volumes:
+            - ./scripts/db:/docker-entrypoint-initdb.d

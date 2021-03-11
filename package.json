@@ -1,0 +1,22 @@
+{
+  "name": "docker-vscode-typescript-react-template",
+  "version": "0.0.1",
+  "description": "Template project for fullstack JS development.",
+  "main": "docker-compose.yml",
+  "scripts": {
+    "build.prod": "./scripts/build-prod.sh",
+    "start.prod": "docker-compose build && docker-compose up",
+    "postinstall": "cd client && npm install && cd ../server && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickev36/docker-vscode-typescript-react-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mickev36/docker-vscode-typescript-react-template/issues"
+  },
+  "homepage": "https://github.com/mickev36/docker-vscode-typescript-react-template#readme",
+  "dependencies": {}
+}

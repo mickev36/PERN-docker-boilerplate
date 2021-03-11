@@ -1,0 +1,15 @@
+ARG VARIANT=14
+FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
+WORKDIR /usr/src/app
+# INSTALL DEPS
+RUN npm install -g ts-node typescript
+
+#APP DEPENDENCIES FILES COPY
+RUN mkdir /usr/src/app/client
+RUN mkdir /usr/src/app/server
+COPY ["server/package.json", "server/package-lock.json*", "server/npm-shrinkwrap.json*", "./server/"]
+COPY ["client/package.json", "client/package-lock.json*", "client/npm-shrinkwrap.json*", "./client/"]
+
+# EXPOSE PORTS
+EXPOSE 3000
+EXPOSE 8000
